@@ -12,14 +12,14 @@
    
         %Multiple concatenated boxes
         \foreach[count=\i,%
-                 evaluate=\i as \xlabel using {array({\boxlabels},\i-1)},% 
+                 %evaluate=\i as \xlabel using {array({\boxlabels},\i-1)},%
                  evaluate=\unscaledx as \k using {\unscaledx*\scale+\prev}, remember=\k as \prev (initially 0)] 
                  \unscaledx in \cubex
         {
             \pgfmathsetmacro{\x}{\unscaledx*\scale}
             \coordinate (a) at (\k-\x , \y/2 , \z/2); 
-            \coordinate (b) at (\k-\x ,-\y/2 , \z/2); 
-            \coordinate (c) at (\k    ,-\y/2 , \z/2); 
+            \coordinate (b) at (\k-\x ,-\y/2 , \z/2);
+            \coordinate (c) at (\k    ,-\y/2 , \z/2);
             \coordinate (d) at (\k    , \y/2 , \z/2); 
             \coordinate (e) at (\k    , \y/2 ,-\z/2); 
             \coordinate (f) at (\k    ,-\y/2 ,-\z/2); 
@@ -34,7 +34,7 @@
                 (b) edge (g)
                 (h) edge (g)    
             ;
-            \path (b) edge ["\xlabel"',midway] (c);
+            %\path (b) edge ["\small\xlabel"',midway] (c);
             
             \xdef\LastEastx{\k} %\k persists as \LastEastx after loop 
         }%Loop ends
@@ -42,11 +42,11 @@
         
         \coordinate (a1) at (0 , \y/2 , \z/2);
         \coordinate (b1) at (0 ,-\y/2 , \z/2);
-        \tikzstyle{depthlabel}=[pos=0,text width=14*\z,text centered,sloped]       
-        
+        \tikzstyle{depthlabel}=[pos=0.5,text width=14*\z,text centered,sloped]
+
         \path (c) edge ["\small\zlabel"',depthlabel](f); %depth label
-        \path (b1) edge ["\ylabel",midway] (a1);  %height label
-        
+        \path (b1) edge ["\small\ylabel",midway] (a1);  %height label
+
         
         \tikzstyle{captionlabel}=[text width=15*\LastEastx/\scale,text centered]       
         \path (\LastEastx/2,-\y/2,+\z/2) + (0,-25pt) coordinate (cap) 
@@ -89,7 +89,7 @@
     height/.store       in=\cubey,
     depth/.store        in=\cubez,
     scale/.store        in=\scale,
-    xlabel/.store       in=\boxlabels,
+    xlabel/.store       in=\xlabel,
     ylabel/.store       in=\ylabel,
     zlabel/.store       in=\zlabel,
     caption/.store      in=\caption,
