@@ -47,6 +47,8 @@
         \path (c) edge ["\small\zlabel"',depthlabel](f); %depth label
         \path (b1) edge ["\small\ylabel",midway] (a1);  %height label
 
+        \draw (b) -- node[below] {\small\xlabel} (c);
+
         
         \tikzstyle{captionlabel}=[text width=15*\LastEastx/\scale,text centered]       
         \path (\LastEastx/2,-\y/2,+\z/2) + (0,-25pt) coordinate (cap) 

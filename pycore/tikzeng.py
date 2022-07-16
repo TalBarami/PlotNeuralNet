@@ -86,7 +86,7 @@ def to_Pool(name, xlabel='', ylabel='', zlabel='', offset="(0,0,0)", to="(0,0,0)
     {Box={
         name="""+name+""",
         caption="""+ caption +r""",
-        xlabel={{"""+ str(xlabel) +""", }},
+        xlabel="""+ str(xlabel) +""",
         ylabel="""+ str(ylabel) +""",
         zlabel="""+ str(zlabel) +""",
         fill=\PoolColor,
@@ -152,14 +152,15 @@ def to_ConvSoftMax( name, s_filer=40, offset="(0,0,0)", to="(0,0,0)", width=1, h
 """
 
 # SoftMax
-def to_SoftMax( name, s_filer=10, offset="(0,0,0)", to="(0,0,0)", width=1.5, height=3, depth=25, opacity=0.8, caption=" " ):
+def to_SoftMax( name, xlabel="", ylabel="", zlabel="", offset="(0,0,0)", to="(0,0,0)", width=1.5, height=3, depth=25, opacity=0.8, caption=" " ):
     return r"""
 \pic[shift={"""+ offset +"""}] at """+ to +""" 
     {Box={
         name=""" + name +""",
         caption="""+ caption +""",
-        xlabel={{" ","dummy"}},
-        zlabel="""+ str(s_filer) +""",
+        xlabel=""" + str(xlabel) + """,
+        ylabel="""+ str(ylabel) +""",
+        zlabel="""+ str(zlabel) +""",
         fill=\SoftmaxColor,
         opacity="""+ str(opacity) +""",
         height="""+ str(height) +""",
