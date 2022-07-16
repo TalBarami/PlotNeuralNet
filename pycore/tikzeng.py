@@ -99,13 +99,16 @@ def to_Pool(name, xlabel='', ylabel='', zlabel='', offset="(0,0,0)", to="(0,0,0)
 """
 
 # unpool4, 
-def to_UnPool(name, offset="(0,0,0)", to="(0,0,0)", width=1, height=32, depth=32, opacity=0.5, caption=" "):
+def to_UnPool(name, xlabel='', ylabel='', zlabel='', offset="(0,0,0)", to="(0,0,0)", width=1, height=32, depth=32, opacity=0.5, caption=" "):
     return r"""
 \pic[shift={ """+ offset +""" }] at """+ to +""" 
     {Box={
-        name="""+ name +r""",
+        name="""+name+""",
         caption="""+ caption +r""",
-        fill=\UnpoolColor,
+        xlabel="""+ str(xlabel) +""",
+        ylabel="""+ str(ylabel) +""",
+        zlabel="""+ str(zlabel) +""",
+        fill=\\UnpoolColor,
         opacity="""+ str(opacity) +""",
         height="""+ str(height) +""",
         width="""+ str(width) +""",
