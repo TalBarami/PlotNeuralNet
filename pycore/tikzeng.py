@@ -187,9 +187,9 @@ def to_Sum( name, offset="(0,0,0)", to="(0,0,0)", radius=2.5, opacity=0.6):
 """
 
 
-def to_connection( of, to):
+def to_connection( of, to, of_orient='-east', to_orient='-west'):
     return r"""
-\draw [connection]  ("""+of+"""-east)    -- node {\midarrow} ("""+to+"""-west);
+\draw [connection]  ("""+of+of_orient+""")    -- node {\midarrow} ("""+to+to_orient+""");
 """
 
 def to_skip( of, to, pos=1.25):
